@@ -8,7 +8,7 @@ The repository contains one folder per blog post. Each folder contains at least 
 
 Live scripts are published on [Guy on Simulink](https://blogs.mathworks.com/simulink/) using the [Publishing tool for MATLAB® live script to WordPress](https://www.mathworks.com/matlabcentral/fileexchange/103730-publishing-tool-for-matlab-live-script-to-wordpress).
 
-Click here to open this repository in MATLAB Online: [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](matlab.mathworks.com/open/github/v1?repo=https://github.com/simulink/blog)
+Click here to open this repository in MATLAB Online: [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=simulink/blog)
 
 ### MathWorks Products (https://www.mathworks.com)
 
