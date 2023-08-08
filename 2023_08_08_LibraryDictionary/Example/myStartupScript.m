@@ -1,0 +1,1 @@
+Simulink.LibraryDictionary.refresh('./Libraries')
