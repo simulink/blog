@@ -1,3 +1,3 @@
-p = currentProject
-cd(p.RootFolder)
+p = currentProject;
+cd(p.RootFolder);
 edit SimulatingFromMATLAB.mlx
