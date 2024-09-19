@@ -1,1 +1,1 @@
-edit PropagationError.mlx
+edit PropagationChallenge.mlx
