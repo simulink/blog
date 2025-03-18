@@ -15,5 +15,5 @@ function SC = mdlSankey(mdl,lim)
     SC = SankeyChart( "Parent", f, "GraphData", DG );
     SC.LabelIncludeTotal = "on";
     % Fix labels
-    SC = fixBlkNames(SC);
+    SC = fixBlockNames(SC);
 end

@@ -1,4 +1,4 @@
-function SC = fixBlkNames(SC)
+function SC = fixBlockNames(SC)
 
     warning('off','SankeyChart:UnbalancedGraph');
 
