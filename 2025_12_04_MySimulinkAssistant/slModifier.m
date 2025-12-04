@@ -85,16 +85,26 @@ classdef slModifier < handle
         end
         
         function doTheModif(obj)
+            % for i = 1:length(obj.blks)
+            %     set_param(obj.blks(i),obj.param,obj.value);
+            % end
+
+            str = "matlab:";
+            dStr = "";
             for i = 1:length(obj.blks)
-                set_param(obj.blks(i),obj.param,obj.value);
+                str = str + sprintf("set_param('" + string(getfullname(obj.blks(i))) + "','" + obj.param + "','" + obj.value + "');");
+                dStr = dStr + sprintf("set_param('" + string(getfullname(obj.blks(i))) + "','" + obj.param + "','" + obj.value + "');\n");
             end
-            disp("Done");
+            
+            disp("4 - Make the modification");
+            disp(['<a href="' char(str) '">Click here to apply:</a>']);
+            disp(dStr);
         end
 
 
     end
 
-    % Tools passed ot the LLM
+    % Tools passed to the LLM
     methods (Static=true)
 
         function out = callTool(response,message)
