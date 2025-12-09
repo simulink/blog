@@ -1,0 +1,10 @@
+{
+    "servers": {
+        "matlab": {
+            "type": "stdio",
+            "command": "C:\\MATLAB\\MCP\\server\\matlab-mcp-core-server-win64.exe",
+            "args": ["--matlab-root=C:\\MATLAB\\R2025b",
+                     "--initial-working-folder=C:\\MATLAB\\blog\\MCP\\post"]
+        }
+    }
+}
