@@ -1,7 +1,7 @@
--IL:/Projects/Blog/repo7/blog/2025_11_05_CodeGenerationIntro/cache
--IL:/Projects/Blog/repo7/blog/2025_11_05_CodeGenerationIntro/cache/testCG_ert_rtw
--IL:/MATLAB/R2025b/extern/include
--IL:/MATLAB/R2025b/simulink/include
--IL:/MATLAB/R2025b/rtw/c/src
--IL:/MATLAB/R2025b/rtw/c/src/ext_mode/common
--IL:/MATLAB/R2025b/rtw/c/ert
+﻿-IC:\MATLAB\tt\blog\2025_11_05_CodeGenerationIntro\cache
+-IC:\MATLAB\tt\blog\2025_11_05_CodeGenerationIntro\cache\testCG_ert_rtw
+-IC:\MATLAB\R2025b\extern\include
+-IC:\MATLAB\R2025b\simulink\include
+-IC:\MATLAB\R2025b\rtw\c\src
+-IC:\MATLAB\R2025b\rtw\c\src\ext_mode\common
+-IC:\MATLAB\R2025b\rtw\c\ert

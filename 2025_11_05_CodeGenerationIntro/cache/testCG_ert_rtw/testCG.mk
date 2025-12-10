@@ -1,9 +1,9 @@
-###########################################################################
+﻿###########################################################################
 ## Makefile generated for component 'testCG'. 
 ## 
 ## Makefile     : testCG.mk
-## Generated on : Mon Nov 03 18:25:48 2025
-## Final product: $(RELATIVE_PATH_TO_ANCHOR)/testCG.exe
+## Generated on : Tue Dec 09 19:54:44 2025
+## Final product: $(RELATIVE_PATH_TO_ANCHOR)\testCG.exe
 ## Product type : executable
 ## 
 ###########################################################################
@@ -20,10 +20,10 @@
 
 PRODUCT_NAME              = testCG
 MAKEFILE                  = testCG.mk
-MATLAB_ROOT               = L:/MATLAB/R2025b
-MATLAB_BIN                = L:/MATLAB/R2025b/bin
-MATLAB_ARCH_BIN           = $(MATLAB_BIN)/win64
-START_DIR                 = L:/Projects/Blog/repo7/blog/2025_11_05_CodeGenerationIntro/cache
+MATLAB_ROOT               = C:\MATLAB\R2025b
+MATLAB_BIN                = C:\MATLAB\R2025b\bin
+MATLAB_ARCH_BIN           = $(MATLAB_BIN)\win64
+START_DIR                 = C:\MATLAB\tt\blog\2025_11_05_CodeGenerationIntro\cache
 SOLVER                    = 
 SOLVER_OBJ                = 
 CLASSIC_INTERFACE         = 0
@@ -32,15 +32,16 @@ MODEL_HAS_DYNAMICALLY_LOADED_SFCNS = 0
 RELATIVE_PATH_TO_ANCHOR   = ..
 COMPILER_COMMAND_FILE     = testCG_comp.rsp
 CMD_FILE                  = testCG.rsp
-C_STANDARD_OPTS           = -fwrapv
-CPP_STANDARD_OPTS         = -fwrapv
+C_STANDARD_OPTS           = 
+CPP_STANDARD_OPTS         = 
+NODEBUG                   = 1
 
 ###########################################################################
 ## TOOLCHAIN SPECIFICATIONS
 ###########################################################################
 
-# Toolchain Name:          MinGW64 | gmake (64-bit Windows)
-# Supported Version(s):    8.x
+# Toolchain Name:          Microsoft Visual C++ 2022 v17.0 | nmake (64-bit Windows)
+# Supported Version(s):    17.0
 # ToolchainInfo Version:   2025b
 # Specification Revision:  1.0
 # 
@@ -50,51 +51,53 @@ CPP_STANDARD_OPTS         = -fwrapv
 
 # C_STANDARD_OPTS
 # CPP_STANDARD_OPTS
-# MINGW_ROOT
-# MINGW_C_STANDARD_OPTS
+# NODEBUG
+# cvarsdll
+# cvarsmt
+# conlibsmt
+# ldebug
+# conflags
+# cflags
 
 #-----------
 # MACROS
 #-----------
 
-WARN_FLAGS            = -Wall -W -Wwrite-strings -Winline -Wstrict-prototypes -Wnested-externs -Wpointer-arith -Wcast-align -Wno-stringop-overflow
-WARN_FLAGS_MAX        = $(WARN_FLAGS) -Wcast-qual -Wshadow
-CPP_WARN_FLAGS        = -Wall -W -Wwrite-strings -Winline -Wpointer-arith -Wcast-align -Wno-stringop-overflow
-CPP_WARN_FLAGS_MAX    = $(CPP_WARN_FLAGS) -Wcast-qual -Wshadow
-MW_EXTERNLIB_DIR      = $(MATLAB_ROOT)/extern/lib/win64/mingw64
-SHELL                 = %SystemRoot%/system32/cmd.exe
+MW_EXTERNLIB_DIR    = $(MATLAB_ROOT)\extern\lib\win64\microsoft
+MW_LIB_DIR          = $(MATLAB_ROOT)\lib\win64
+CPU                 = AMD64
+APPVER              = 5.02
+CVARSFLAG           = $(cvarsmt)
+CFLAGS_ADDITIONAL   = -D_CRT_SECURE_NO_WARNINGS
+CPPFLAGS_ADDITIONAL = -EHs -D_CRT_SECURE_NO_WARNINGS /wd4251 /Zc:__cplusplus
+LIBS_TOOLCHAIN      = $(conlibs)
 
 TOOLCHAIN_SRCS = 
 TOOLCHAIN_INCS = 
-TOOLCHAIN_LIBS = -lws2_32
+TOOLCHAIN_LIBS = 
 
 #------------------------
 # BUILD TOOL COMMANDS
 #------------------------
 
-# C Compiler: GNU C Compiler
-CC_PATH = $(MINGW_ROOT)
-CC = "$(CC_PATH)/gcc"
+# C Compiler: Microsoft Visual C Compiler
+CC = cl
 
-# Linker: GNU Linker
-LD_PATH = $(MINGW_ROOT)
-LD = "$(LD_PATH)/g++"
+# Linker: Microsoft Visual C Linker
+LD = link
 
-# C++ Compiler: GNU C++ Compiler
-CPP_PATH = $(MINGW_ROOT)
-CPP = "$(CPP_PATH)/g++"
+# C++ Compiler: Microsoft Visual C++ Compiler
+CPP = cl
 
-# C++ Linker: GNU C++ Linker
-CPP_LD_PATH = $(MINGW_ROOT)
-CPP_LD = "$(CPP_LD_PATH)/g++"
+# C++ Linker: Microsoft Visual C++ Linker
+CPP_LD = link
 
-# Archiver: GNU Archiver
-AR_PATH = $(MINGW_ROOT)
-AR = "$(AR_PATH)/ar"
+# Archiver: Microsoft Visual C/C++ Archiver
+AR = lib
 
 # MEX Tool: MEX Tool
 MEX_PATH = $(MATLAB_ARCH_BIN)
-MEX = "$(MEX_PATH)/mex"
+MEX = "$(MEX_PATH)\mex"
 
 # Download: Download
 DOWNLOAD =
@@ -102,53 +105,52 @@ DOWNLOAD =
 # Execute: Execute
 EXECUTE = $(PRODUCT)
 
-# Builder: GMAKE Utility
-MAKE_PATH = $(MINGW_ROOT)
-MAKE = "$(MAKE_PATH)/mingw32-make.exe"
+# Builder: NMAKE Utility
+MAKE = nmake
 
 
 #-------------------------
 # Directives/Utilities
 #-------------------------
 
-CDEBUG              = -g
-C_OUTPUT_FLAG       = -o
-LDDEBUG             = -g
-OUTPUT_FLAG         = -o
-CPPDEBUG            = -g
-CPP_OUTPUT_FLAG     = -o
-CPPLDDEBUG          = -g
-OUTPUT_FLAG         = -o
+CDEBUG              = -Zi
+C_OUTPUT_FLAG       = -Fo
+LDDEBUG             = /DEBUG
+OUTPUT_FLAG         = -out:
+CPPDEBUG            = -Zi
+CPP_OUTPUT_FLAG     = -Fo
+CPPLDDEBUG          = /DEBUG
+OUTPUT_FLAG         = -out:
 ARDEBUG             =
-STATICLIB_OUTPUT_FLAG =
+STATICLIB_OUTPUT_FLAG = -out:
 MEX_DEBUG           = -g
 RM                  = @del
 ECHO                = @echo
-MV                  = @move
-RUN                 =
+MV                  = @ren
+RUN                 = @cmd /C
 
 #----------------------------------------
 # "Faster Builds" Build Configuration
 #----------------------------------------
 
-ARFLAGS              = ruvs
-CFLAGS               = -c $(MINGW_C_STANDARD_OPTS) -m64 \
-                       -O0
-CPPFLAGS             = -c $(CPP_STANDARD_OPTS) -m64 \
-                       -O0
-CPP_LDFLAGS          =  -static -m64
-CPP_SHAREDLIB_LDFLAGS  = -shared -Wl,--no-undefined \
-                         -Wl,--out-implib,$(basename $(PRODUCT)).lib
+ARFLAGS              = /nologo
+CFLAGS               = $(cflags) $(CVARSFLAG) $(CFLAGS_ADDITIONAL) $(C_STANDARD_OPTS) \
+                       /Od /Oy-
+CPPFLAGS             = /TP $(cflags) $(CVARSFLAG) $(CPPFLAGS_ADDITIONAL) $(CPP_STANDARD_OPTS) \
+                       /Od /Oy-
+CPP_LDFLAGS          = $(ldebug) $(conflags) $(LIBS_TOOLCHAIN)
+CPP_SHAREDLIB_LDFLAGS  = $(ldebug) $(conflags) $(LIBS_TOOLCHAIN) \
+                         -dll -def:$(DEF_FILE)
 DOWNLOAD_FLAGS       =
 EXECUTE_FLAGS        =
-LDFLAGS              =  -static -m64
+LDFLAGS              = $(ldebug) $(conflags) $(LIBS_TOOLCHAIN)
 MEX_CPPFLAGS         =
 MEX_CPPLDFLAGS       =
 MEX_CFLAGS           =
 MEX_LDFLAGS          =
-MAKE_FLAGS           = -j $(MAX_MAKE_JOBS) -l $(MAX_MAKE_LOAD_AVG) -Oline -f $(MAKEFILE)
-SHAREDLIB_LDFLAGS    = -shared -Wl,--no-undefined \
-                       -Wl,--out-implib,$(basename $(PRODUCT)).lib
+MAKE_FLAGS           = -f $(MAKEFILE)
+SHAREDLIB_LDFLAGS    = $(ldebug) $(conflags) $(LIBS_TOOLCHAIN) \
+                       -dll -def:$(DEF_FILE)
 
 
 
@@ -156,7 +158,7 @@ SHAREDLIB_LDFLAGS    = -shared -Wl,--no-undefined \
 ## OUTPUT INFO
 ###########################################################################
 
-PRODUCT = $(RELATIVE_PATH_TO_ANCHOR)/testCG.exe
+PRODUCT = $(RELATIVE_PATH_TO_ANCHOR)\testCG.exe
 PRODUCT_TYPE = "executable"
 BUILD_TYPE = "Top-Level Standalone Executable"
 
@@ -183,9 +185,9 @@ DEFINES = $(DEFINES_BUILD_ARGS) $(DEFINES_CUSTOM) $(DEFINES_OPTS) $(DEFINES_STAN
 ## SOURCE FILES
 ###########################################################################
 
-SRCS = $(START_DIR)/testCG_ert_rtw/testCG.c $(START_DIR)/testCG_ert_rtw/testCG_data.c
+SRCS = $(START_DIR)\testCG_ert_rtw\testCG.c $(START_DIR)\testCG_ert_rtw\testCG_data.c
 
-MAIN_SRC = $(START_DIR)/testCG_ert_rtw/ert_main.c
+MAIN_SRC = $(START_DIR)\testCG_ert_rtw\ert_main.c
 
 ALL_SRCS = $(SRCS) $(MAIN_SRC)
 
@@ -225,60 +227,42 @@ SYSTEM_LIBS =
 # C Compiler
 #---------------
 
-CFLAGS_TFL = -msse2 -fno-predictive-commoning
-CFLAGS_BASIC = $(DEFINES) $(INCLUDES) @$(COMPILER_COMMAND_FILE)
+CFLAGS_BASIC = $(DEFINES) @$(COMPILER_COMMAND_FILE)
 
-CFLAGS += $(CFLAGS_TFL) $(CFLAGS_BASIC)
+CFLAGS = $(CFLAGS) $(CFLAGS_BASIC)
 
 #-----------------
 # C++ Compiler
 #-----------------
 
-CPPFLAGS_TFL = -msse2 -fno-predictive-commoning
-CPPFLAGS_BASIC = $(DEFINES) $(INCLUDES) @$(COMPILER_COMMAND_FILE)
+CPPFLAGS_BASIC = $(DEFINES) @$(COMPILER_COMMAND_FILE)
 
-CPPFLAGS += $(CPPFLAGS_TFL) $(CPPFLAGS_BASIC)
-
-#---------------------
-# MEX C++ Compiler
-#---------------------
-
-MEX_CPP_Compiler_BASIC =  @$(COMPILER_COMMAND_FILE)
-
-MEX_CPPFLAGS += $(MEX_CPP_Compiler_BASIC)
-
-#-----------------
-# MEX Compiler
-#-----------------
-
-MEX_Compiler_BASIC =  @$(COMPILER_COMMAND_FILE)
-
-MEX_CFLAGS += $(MEX_Compiler_BASIC)
+CPPFLAGS = $(CPPFLAGS) $(CPPFLAGS_BASIC)
 
 ###########################################################################
 ## INLINED COMMANDS
 ###########################################################################
 
 
-MINGW_C_STANDARD_OPTS = $(C_STANDARD_OPTS)
+!include $(MATLAB_ROOT)\rtw\c\tools\vcdefs.mak
 
 
 ###########################################################################
 ## PHONY TARGETS
 ###########################################################################
 
-.PHONY : all build buildobj clean info prebuild download execute
+.PHONY : all build buildobj clean info prebuild download execute set_environment_variables
 
 
 all : build
-	@echo "### Successfully generated all binary outputs."
+	@cmd /C "@echo ### Successfully generated all binary outputs."
 
 
-build : prebuild $(PRODUCT)
+build : set_environment_variables prebuild $(PRODUCT)
 
 
-buildobj : prebuild $(OBJS) $(PREBUILT_OBJS)
-	@echo "### Successfully generated all binary outputs."
+buildobj : set_environment_variables prebuild $(OBJS) $(PREBUILT_OBJS)
+	@cmd /C "@echo ### Successfully generated all binary outputs."
 
 
 prebuild : 
@@ -288,9 +272,14 @@ download : $(PRODUCT)
 
 
 execute : download
-	@echo "### Invoking postbuild tool "Execute" ..."
+	@cmd /C "@echo ### Invoking postbuild tool "Execute" ..."
 	$(EXECUTE) $(EXECUTE_FLAGS)
-	@echo "### Done invoking postbuild tool."
+	@cmd /C "@echo ### Done invoking postbuild tool."
+
+
+set_environment_variables : 
+	@set INCLUDE=$(INCLUDES);$(INCLUDE)
+	@set LIB=$(LIB)
 
 
 ###########################################################################
@@ -302,9 +291,9 @@ execute : download
 #-------------------------------------------
 
 $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS) $(MAIN_OBJ)
-	@echo "### Creating standalone executable "$(PRODUCT)" ..."
-	$(LD) $(LDFLAGS) -o $(PRODUCT) @$(CMD_FILE) $(SYSTEM_LIBS) $(TOOLCHAIN_LIBS)
-	@echo "### Created: $(PRODUCT)"
+	@cmd /C "@echo ### Creating standalone executable "$(PRODUCT)" ..."
+	$(LD) $(LDFLAGS) -out:$(PRODUCT) @$(CMD_FILE) $(SYSTEM_LIBS) $(TOOLCHAIN_LIBS)
+	@cmd /C "@echo ### Created: $(PRODUCT)"
 
 
 ###########################################################################
@@ -315,240 +304,128 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS) $(MAIN_OBJ)
 # SOURCE-TO-OBJECT
 #---------------------
 
-%.obj : %.c
-	$(CC) $(CFLAGS) -o "$@" "$<"
+.c.obj:
+	$(CC) $(CFLAGS) -Fo"$@" "$<"
 
 
-%.obj : %.cpp
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+.cpp.obj:
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
 
 
-%.obj : %.cc
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+.cc.obj:
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
 
 
-%.obj : %.cp
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+.cxx.obj:
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
 
 
-%.obj : %.cxx
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+{$(RELATIVE_PATH_TO_ANCHOR)}.c.obj:
+	$(CC) $(CFLAGS) -Fo"$@" "$<"
 
 
-%.obj : %.CPP
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+{$(RELATIVE_PATH_TO_ANCHOR)}.cpp.obj:
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
 
 
-%.obj : %.c++
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+{$(RELATIVE_PATH_TO_ANCHOR)}.cc.obj:
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
 
 
-%.obj : %.C
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+{$(RELATIVE_PATH_TO_ANCHOR)}.cxx.obj:
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
 
 
-%.obj : $(RELATIVE_PATH_TO_ANCHOR)/%.c
-	$(CC) $(CFLAGS) -o "$@" "$<"
+{$(START_DIR)}.c.obj:
+	$(CC) $(CFLAGS) -Fo"$@" "$<"
 
 
-%.obj : $(RELATIVE_PATH_TO_ANCHOR)/%.cpp
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+{$(START_DIR)}.cpp.obj:
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
 
 
-%.obj : $(RELATIVE_PATH_TO_ANCHOR)/%.cc
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+{$(START_DIR)}.cc.obj:
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
 
 
-%.obj : $(RELATIVE_PATH_TO_ANCHOR)/%.cp
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+{$(START_DIR)}.cxx.obj:
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
 
 
-%.obj : $(RELATIVE_PATH_TO_ANCHOR)/%.cxx
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+{$(START_DIR)\testCG_ert_rtw}.c.obj:
+	$(CC) $(CFLAGS) -Fo"$@" "$<"
 
 
-%.obj : $(RELATIVE_PATH_TO_ANCHOR)/%.CPP
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+{$(START_DIR)\testCG_ert_rtw}.cpp.obj:
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
 
 
-%.obj : $(RELATIVE_PATH_TO_ANCHOR)/%.c++
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+{$(START_DIR)\testCG_ert_rtw}.cc.obj:
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
 
 
-%.obj : $(RELATIVE_PATH_TO_ANCHOR)/%.C
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+{$(START_DIR)\testCG_ert_rtw}.cxx.obj:
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
 
 
-%.obj : $(START_DIR)/%.c
-	$(CC) $(CFLAGS) -o "$@" "$<"
+{$(MATLAB_ROOT)\rtw\c\src}.c.obj:
+	$(CC) $(CFLAGS) -Fo"$@" "$<"
 
 
-%.obj : $(START_DIR)/%.cpp
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+{$(MATLAB_ROOT)\rtw\c\src}.cpp.obj:
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
 
 
-%.obj : $(START_DIR)/%.cc
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+{$(MATLAB_ROOT)\rtw\c\src}.cc.obj:
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
 
 
-%.obj : $(START_DIR)/%.cp
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+{$(MATLAB_ROOT)\rtw\c\src}.cxx.obj:
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
 
 
-%.obj : $(START_DIR)/%.cxx
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+{$(MATLAB_ROOT)\simulink\src}.c.obj:
+	$(CC) $(CFLAGS) -Fo"$@" "$<"
 
 
-%.obj : $(START_DIR)/%.CPP
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+{$(MATLAB_ROOT)\simulink\src}.cpp.obj:
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
 
 
-%.obj : $(START_DIR)/%.c++
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+{$(MATLAB_ROOT)\simulink\src}.cc.obj:
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
 
 
-%.obj : $(START_DIR)/%.C
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+{$(MATLAB_ROOT)\simulink\src}.cxx.obj:
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
 
 
-%.obj : $(START_DIR)/testCG_ert_rtw/%.c
-	$(CC) $(CFLAGS) -o "$@" "$<"
+{$(MATLAB_ROOT)\toolbox\simulink\blocks\src}.c.obj:
+	$(CC) $(CFLAGS) -Fo"$@" "$<"
 
 
-%.obj : $(START_DIR)/testCG_ert_rtw/%.cpp
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+{$(MATLAB_ROOT)\toolbox\simulink\blocks\src}.cpp.obj:
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
 
 
-%.obj : $(START_DIR)/testCG_ert_rtw/%.cc
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+{$(MATLAB_ROOT)\toolbox\simulink\blocks\src}.cc.obj:
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
 
 
-%.obj : $(START_DIR)/testCG_ert_rtw/%.cp
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+{$(MATLAB_ROOT)\toolbox\simulink\blocks\src}.cxx.obj:
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
 
 
-%.obj : $(START_DIR)/testCG_ert_rtw/%.cxx
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+ert_main.obj : "$(START_DIR)\testCG_ert_rtw\ert_main.c"
+	$(CC) $(CFLAGS) -Fo"$@" "$(START_DIR)\testCG_ert_rtw\ert_main.c"
 
 
-%.obj : $(START_DIR)/testCG_ert_rtw/%.CPP
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+testCG.obj : "$(START_DIR)\testCG_ert_rtw\testCG.c"
+	$(CC) $(CFLAGS) -Fo"$@" "$(START_DIR)\testCG_ert_rtw\testCG.c"
 
 
-%.obj : $(START_DIR)/testCG_ert_rtw/%.c++
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-%.obj : $(START_DIR)/testCG_ert_rtw/%.C
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/rtw/c/src/%.c
-	$(CC) $(CFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/rtw/c/src/%.cpp
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/rtw/c/src/%.cc
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/rtw/c/src/%.cp
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/rtw/c/src/%.cxx
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/rtw/c/src/%.CPP
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/rtw/c/src/%.c++
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/rtw/c/src/%.C
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/simulink/src/%.c
-	$(CC) $(CFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/simulink/src/%.cpp
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/simulink/src/%.cc
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/simulink/src/%.cp
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/simulink/src/%.cxx
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/simulink/src/%.CPP
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/simulink/src/%.c++
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/simulink/src/%.C
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/toolbox/simulink/blocks/src/%.c
-	$(CC) $(CFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/toolbox/simulink/blocks/src/%.cpp
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/toolbox/simulink/blocks/src/%.cc
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/toolbox/simulink/blocks/src/%.cp
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/toolbox/simulink/blocks/src/%.cxx
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/toolbox/simulink/blocks/src/%.CPP
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/toolbox/simulink/blocks/src/%.c++
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-%.obj : $(MATLAB_ROOT)/toolbox/simulink/blocks/src/%.C
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-ert_main.obj : $(START_DIR)/testCG_ert_rtw/ert_main.c
-	$(CC) $(CFLAGS) -o "$@" "$<"
-
-
-testCG.obj : $(START_DIR)/testCG_ert_rtw/testCG.c
-	$(CC) $(CFLAGS) -o "$@" "$<"
-
-
-testCG_data.obj : $(START_DIR)/testCG_ert_rtw/testCG_data.c
-	$(CC) $(CFLAGS) -o "$@" "$<"
+testCG_data.obj : "$(START_DIR)\testCG_ert_rtw\testCG_data.c"
+	$(CC) $(CFLAGS) -Fo"$@" "$(START_DIR)\testCG_ert_rtw\testCG_data.c"
 
 
 ###########################################################################
@@ -563,37 +440,37 @@ $(ALL_OBJS) : rtw_proj.tmw $(COMPILER_COMMAND_FILE) $(MAKEFILE)
 ###########################################################################
 
 info : 
-	@echo "### PRODUCT = $(PRODUCT)"
-	@echo "### PRODUCT_TYPE = $(PRODUCT_TYPE)"
-	@echo "### BUILD_TYPE = $(BUILD_TYPE)"
-	@echo "### INCLUDES = $(INCLUDES)"
-	@echo "### DEFINES = $(DEFINES)"
-	@echo "### ALL_SRCS = $(ALL_SRCS)"
-	@echo "### ALL_OBJS = $(ALL_OBJS)"
-	@echo "### LIBS = $(LIBS)"
-	@echo "### MODELREF_LIBS = $(MODELREF_LIBS)"
-	@echo "### SYSTEM_LIBS = $(SYSTEM_LIBS)"
-	@echo "### TOOLCHAIN_LIBS = $(TOOLCHAIN_LIBS)"
-	@echo "### CFLAGS = $(CFLAGS)"
-	@echo "### LDFLAGS = $(LDFLAGS)"
-	@echo "### SHAREDLIB_LDFLAGS = $(SHAREDLIB_LDFLAGS)"
-	@echo "### CPPFLAGS = $(CPPFLAGS)"
-	@echo "### CPP_LDFLAGS = $(CPP_LDFLAGS)"
-	@echo "### CPP_SHAREDLIB_LDFLAGS = $(CPP_SHAREDLIB_LDFLAGS)"
-	@echo "### ARFLAGS = $(ARFLAGS)"
-	@echo "### MEX_CFLAGS = $(MEX_CFLAGS)"
-	@echo "### MEX_CPPFLAGS = $(MEX_CPPFLAGS)"
-	@echo "### MEX_LDFLAGS = $(MEX_LDFLAGS)"
-	@echo "### MEX_CPPLDFLAGS = $(MEX_CPPLDFLAGS)"
-	@echo "### DOWNLOAD_FLAGS = $(DOWNLOAD_FLAGS)"
-	@echo "### EXECUTE_FLAGS = $(EXECUTE_FLAGS)"
-	@echo "### MAKE_FLAGS = $(MAKE_FLAGS)"
+	@cmd /C "@echo ### PRODUCT = $(PRODUCT)"
+	@cmd /C "@echo ### PRODUCT_TYPE = $(PRODUCT_TYPE)"
+	@cmd /C "@echo ### BUILD_TYPE = $(BUILD_TYPE)"
+	@cmd /C "@echo ### INCLUDES = $(INCLUDES)"
+	@cmd /C "@echo ### DEFINES = $(DEFINES)"
+	@cmd /C "@echo ### ALL_SRCS = $(ALL_SRCS)"
+	@cmd /C "@echo ### ALL_OBJS = $(ALL_OBJS)"
+	@cmd /C "@echo ### LIBS = $(LIBS)"
+	@cmd /C "@echo ### MODELREF_LIBS = $(MODELREF_LIBS)"
+	@cmd /C "@echo ### SYSTEM_LIBS = $(SYSTEM_LIBS)"
+	@cmd /C "@echo ### TOOLCHAIN_LIBS = $(TOOLCHAIN_LIBS)"
+	@cmd /C "@echo ### CFLAGS = $(CFLAGS)"
+	@cmd /C "@echo ### LDFLAGS = $(LDFLAGS)"
+	@cmd /C "@echo ### SHAREDLIB_LDFLAGS = $(SHAREDLIB_LDFLAGS)"
+	@cmd /C "@echo ### CPPFLAGS = $(CPPFLAGS)"
+	@cmd /C "@echo ### CPP_LDFLAGS = $(CPP_LDFLAGS)"
+	@cmd /C "@echo ### CPP_SHAREDLIB_LDFLAGS = $(CPP_SHAREDLIB_LDFLAGS)"
+	@cmd /C "@echo ### ARFLAGS = $(ARFLAGS)"
+	@cmd /C "@echo ### MEX_CFLAGS = $(MEX_CFLAGS)"
+	@cmd /C "@echo ### MEX_CPPFLAGS = $(MEX_CPPFLAGS)"
+	@cmd /C "@echo ### MEX_LDFLAGS = $(MEX_LDFLAGS)"
+	@cmd /C "@echo ### MEX_CPPLDFLAGS = $(MEX_CPPLDFLAGS)"
+	@cmd /C "@echo ### DOWNLOAD_FLAGS = $(DOWNLOAD_FLAGS)"
+	@cmd /C "@echo ### EXECUTE_FLAGS = $(EXECUTE_FLAGS)"
+	@cmd /C "@echo ### MAKE_FLAGS = $(MAKE_FLAGS)"
 
 
 clean : 
 	$(ECHO) "### Deleting all derived files ..."
-	$(RM) $(subst /,\,$(PRODUCT))
-	$(RM) $(subst /,\,$(ALL_OBJS))
+	@if exist $(PRODUCT) $(RM) $(PRODUCT)
+	$(RM) $(ALL_OBJS)
 	$(ECHO) "### Deleted all derived files."
 
 
