@@ -1,0 +1,13 @@
+# MATLAB cache and autosave — not part of the model
+slprj/
+sfprj/
+codegen/
+*.autosave
+*.asv
+*.m~
+*.mcos
+*.slxc
+
+# OS
+.DS_Store
+Thumbs.db
