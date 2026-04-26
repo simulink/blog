@@ -48,7 +48,3 @@ Three separate architecture models (F/L/P), two allocation sets (F→L, L→P). 
 ## MATLAB conventions
 
 User's global MATLAB coding standards, performance rules, and plain-text Live Script format apply (loaded via `~/.claude/CLAUDE.md`). Generated build scripts must be idempotent — re-running must not duplicate requirements, links, components, or allocations. Use `slreq.*` / `systemcomposer.*` "find or create" patterns rather than unconditional adds.
-
-## Memory
-
-Notable auto-memory: `feedback_slreq_traceability.md` contains verified slreq link-analysis API patterns and corrections to common mistakes — consult it before writing new traceability code.
