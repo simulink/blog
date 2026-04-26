@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A collection of Claude **skills** (not runnable code) for Model-Based Systems Engineering (MBSE). There is no build system, no test runner, no package manifest — the skills are markdown instructions Claude loads to drive MATLAB/System Composer/Requirements Toolbox through the user's installed MATLAB (via the `simulink` MCP server — tool names are `mcp__simulink__*`).
 
-**Prerequisites:** System Composer and Requirements Toolbox. Skills target an R2023a baseline — do not propose APIs introduced after the user's release.
+**Prerequisites:** System Composer and Requirements Toolbox. Skills target an R2025b baseline — do not propose APIs introduced after the user's release.
 
 See [OVERVIEW.md](OVERVIEW.md) for the full workflow description, phase-by-phase artifact breakdown, and design rationale.
 
@@ -48,7 +48,3 @@ Three separate architecture models (F/L/P), two allocation sets (F→L, L→P). 
 ## MATLAB conventions
 
 User's global MATLAB coding standards, performance rules, and plain-text Live Script format apply (loaded via `~/.claude/CLAUDE.md`). Generated build scripts must be idempotent — re-running must not duplicate requirements, links, components, or allocations. Use `slreq.*` / `systemcomposer.*` "find or create" patterns rather than unconditional adds.
-
-## Memory
-
-Notable auto-memory: `feedback_slreq_traceability.md` contains verified slreq link-analysis API patterns and corrections to common mistakes — consult it before writing new traceability code.
