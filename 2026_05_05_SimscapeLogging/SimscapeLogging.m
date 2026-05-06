@@ -24,7 +24,7 @@ out.simlog_CavitationInTwoPhaseFluid.Translational_Mechanical_Converter_2P.inter
 %[text] ![](text:image:8909)
 %[text] After making those changes, I can simulate the new model and confirm that the results are the same
 mdl = 'CavitationInTwoPhaseFluidSSCLog';
-open_system(mdl)
+open_system(mdl);
 outAfter = sim(mdl);
 outAfter.logsout %[output:732ca7cb]
 diffResult = Simulink.sdi.compareRuns(runIDs(end-1), runIDs(end),'abstol',1e-3,'reltol',1e-3);
