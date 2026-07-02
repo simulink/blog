@@ -1,6 +1,6 @@
-%[text] # My SCUBA Diving Simulator
+%[text] # My Scuba Diving Simulator
 %[text] [![](text:image:6447)](https://matlab.mathworks.com/open/github/v1?repo=simulink/blog&project=2026_06_20_scuba/ScubaSimulator.prj)
-%[text] I recently took a week of vacation to go SCUBA diving in the Caribbean. In the middle of a dive, at about 80 feet down, this idea came to my mind: **I need to make a SCUBA diving simulator!**
+%[text] I recently took a week of vacation to go scuba diving in the Caribbean. In the middle of a dive, at about 80 feet down, this idea came to my mind: **I need to make a scuba diving simulator!**
 %[text] I had thought about creating this simulation before, but I always ended up struggling with one thing or another. Typically, I would get stuck when trying to add the effect of depth on the diver's lungs and the [buoyancy control device (BCD)](https://en.wikipedia.org/wiki/Buoyancy_compensator_(diving)).
 %[text] Today, with an AI agent and the [Simulink Agentic Toolkit](https://www.mathworks.com/products/simulink-agentic-toolkit.html), I thought it was time to give this another try.
 %%
