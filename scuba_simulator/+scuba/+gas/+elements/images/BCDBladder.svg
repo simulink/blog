@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <!-- Simple jacket/vest outline -->
+  <path d="M17,12 C17,12 20,10 25,10 C30,10 33,12 33,12 L36,14 L38,18 L38,38 L34,40 L30,40 L30,38 L20,38 L20,40 L16,40 L12,38 L12,18 L14,14 Z" fill="none" stroke="#333" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Neck opening -->
+  <path d="M20,10 C22,13 28,13 30,10" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Arm openings -->
+  <path d="M12,18 L9,20 L9,28 L12,30" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M38,18 L41,20 L41,28 L38,30" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

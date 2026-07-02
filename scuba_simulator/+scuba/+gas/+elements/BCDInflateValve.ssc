@@ -1,0 +1,46 @@
+component BCDInflateValve
+% BCD Inflate Valve
+% Commanded valve for BCD inflation.
+% Opens when cmd > 0.5, allowing IP gas to flow into bladder.
+
+    annotations
+        Icon = 'images/BCDInflateValve.svg';
+    end
+
+    nodes
+        A = scuba.gas.underwaterGas;  % IP side:left
+        B = scuba.gas.underwaterGas;  % BCD side:right
+    end
+
+    inputs
+        cmd = {0, '1'};  % Inflate command (0=closed, 1=open)
+    end
+
+    parameters
+        R_open = {2e4, 'Pa*s/mol'};   % Flow resistance when open
+    end
+
+    variables
+        n_dot = {0, 'mol/s'};  % Flow A to B
+    end
+
+    branches
+        n_dot : A.n_dot -> B.n_dot;
+    end
+
+    intermediates
+        p_diff = A.p - B.p;
+        cmd_clamped = if cmd > {1, '1'}
+            {1, '1'}
+        elseif cmd < {0, '1'}
+            {0, '1'}
+        else
+            cmd
+        end;
+    end
+
+    equations
+        n_dot == cmd_clamped * p_diff / R_open;
+    end
+
+end

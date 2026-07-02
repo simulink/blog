@@ -1,0 +1,51 @@
+component FirstStageRegulator
+% First Stage Regulator
+% Reduces HP tank pressure to intermediate pressure.
+% Maintains outlet (B) at P_amb + IP_offset, limited by supply pressure.
+
+    annotations
+        Icon = 'images/FirstStageRegulator.svg';
+        [R] : Side = top;
+    end
+
+    nodes
+        A = scuba.gas.underwaterGas;                    % HP inlet:left
+        B = scuba.gas.underwaterGas;                    % IP outlet:right
+        R = foundation.translational.translational;     % position:right
+    end
+
+    parameters
+        IP_offset = {10e5, 'Pa'};        % Setpoint above ambient (10 bar)
+        R_open    = {1e3, 'Pa*s/mol'};   % Flow resistance when regulating
+        rho_water = {1025, 'kg/m^3'};    % Water density
+        P_atm     = {101325, 'Pa'};      % Atmospheric pressure
+    end
+
+    variables
+        n_dot = {0, 'mol/s'};  % Flow A to B
+        f     = {0, 'N'};      % Force on translational port
+    end
+
+    branches
+        n_dot : A.n_dot -> B.n_dot;
+        f     : * -> R.f;
+    end
+
+    intermediates
+        depth = R.x;
+        P_amb = P_atm + rho_water * R.gravity * depth;
+        P_set = P_amb + IP_offset;
+        P_target = if A.p < P_set, A.p else P_set end;
+        p_err = P_target - B.p;
+    end
+
+    equations
+        f == {0, 'N'};
+        n_dot == if p_err > {0, 'Pa'}
+            p_err / R_open
+        else
+            {0, 'mol/s'}
+        end;
+    end
+
+end

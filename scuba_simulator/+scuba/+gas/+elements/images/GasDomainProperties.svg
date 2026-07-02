@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <!-- Source/propagation symbol - circle with radiating lines -->
+  <circle cx="25" cy="25" r="10" fill="none" stroke="#333" stroke-width="2"/>
+  <!-- R and T letters inside -->
+  <text x="19" y="28" font-family="sans-serif" font-size="8" fill="#333">R,T</text>
+  <!-- Radiating arrows -->
+  <line x1="35" y1="25" x2="44" y2="25" stroke="#333" stroke-width="1.5"/>
+  <polygon points="42,23 44,25 42,27" fill="#333"/>
+  <line x1="25" y1="35" x2="25" y2="44" stroke="#333" stroke-width="1.5"/>
+  <polygon points="23,42 25,44 27,42" fill="#333"/>
+  <line x1="15" y1="25" x2="6" y2="25" stroke="#333" stroke-width="1.5"/>
+  <polygon points="8,23 6,25 8,27" fill="#333"/>
+</svg>

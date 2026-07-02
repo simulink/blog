@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <!-- Trachea -->
+  <rect x="23.5" y="6" width="3" height="10" rx="1.5" fill="#5a8a9a"/>
+  <!-- Left lung -->
+  <path d="M23,16 C23,16 14,17 11,24 C8,31 9,38 12,41 C15,44 20,44 22,42 C24,40 24,36 24,34 L24,20 Z" fill="#7ab8cc" stroke="#4a7a8a" stroke-width="1.2"/>
+  <!-- Right lung -->
+  <path d="M27,16 C27,16 36,17 39,24 C42,31 41,38 38,41 C35,44 30,44 28,42 C26,40 26,36 26,34 L26,20 Z" fill="#7ab8cc" stroke="#4a7a8a" stroke-width="1.2"/>
+  <!-- Left bronchus -->
+  <path d="M24,18 C21,20 17,24 16,28" fill="none" stroke="#4a7a8a" stroke-width="1" stroke-linecap="round"/>
+  <!-- Right bronchus -->
+  <path d="M26,18 C29,20 33,24 34,28" fill="none" stroke="#4a7a8a" stroke-width="1" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,50 @@
+component PurgeValve
+% Purge Valve
+% Commanded dump valve for BCD purge.
+% Opens when cmd > 0.5, vents gas from bladder to ambient.
+% P_dump bias models hydrostatic head from raising dump valve above shoulder.
+% Flow is clamped non-negative (one-way: BCD to water only).
+
+    annotations
+        Icon = 'images/PurgeValve.svg';
+    end
+
+    nodes
+        A = scuba.gas.underwaterGas;  % BCD side:left
+        B = scuba.gas.underwaterGas;  % Ambient side:right
+    end
+
+    inputs
+        cmd = {0, '1'};  % Purge command (0=closed, 1=open)
+    end
+
+    parameters
+        R_open = {1e4, 'Pa*s/mol'};   % Flow resistance when open
+        P_dump = {5000, 'Pa'};        % Dump bias (hydrostatic head ~50cm water column)
+    end
+
+    variables
+        n_dot = {0, 'mol/s'};  % Flow A to B
+    end
+
+    branches
+        n_dot : A.n_dot -> B.n_dot;
+    end
+
+    intermediates
+        p_drive = A.p - B.p + P_dump;
+        p_eff = if p_drive > {0, 'Pa'}, p_drive else {0, 'Pa'} end;
+        cmd_clamped = if cmd > {1, '1'}
+            {1, '1'}
+        elseif cmd < {0, '1'}
+            {0, '1'}
+        else
+            cmd
+        end;
+    end
+
+    equations
+        n_dot == cmd_clamped * p_eff / R_open;
+    end
+
+end

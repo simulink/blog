@@ -1,0 +1,41 @@
+component DiverBody
+% Diver Body
+% Combined mass, buoyancy, and hydrodynamic drag for a human body on a
+% position-based translational port. Weight, Archimedes buoyancy, and
+% quadratic drag are all applied as body forces through the port.
+
+    annotations
+        Icon = 'images/DiverBody.svg';
+    end
+
+    nodes
+        R = foundation.translational.translational;  % :left
+    end
+
+    parameters
+        V_body    = {0.065, 'm^3'};      % Body volume (65 L)
+        rho_body  = {985, 'kg/m^3'};     % Body density
+        rho_water = {1025, 'kg/m^3'};    % Water density
+        Cd        = {1.1, '1'};          % Drag coefficient
+        A_frontal = {0.12, 'm^2'};       % Frontal area
+    end
+
+    variables
+        f = {0, 'N'};
+    end
+
+    branches
+        f : R.f -> *;
+    end
+
+    intermediates
+        mass   = rho_body * V_body;
+        F_buoy = rho_water * R.gravity * V_body;
+        F_drag = {0.5, '1'} * rho_water * Cd * A_frontal * R.v * abs(R.v);
+    end
+
+    equations
+        f == mass * der(R.v) - mass * R.gravity + F_buoy + F_drag;
+    end
+
+end

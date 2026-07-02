@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <!-- Source circle -->
+  <circle cx="25" cy="25" r="16" fill="none" stroke="#333" stroke-width="2"/>
+  <!-- Plus/minus for pressure source -->
+  <line x1="20" y1="18" x2="30" y2="18" stroke="#333" stroke-width="1.5"/>
+  <line x1="25" y1="13" x2="25" y2="23" stroke="#333" stroke-width="1.5"/>
+  <line x1="20" y1="33" x2="30" y2="33" stroke="#333" stroke-width="1.5"/>
+  <!-- Port connection right -->
+  <line x1="41" y1="25" x2="48" y2="25" stroke="#333" stroke-width="2"/>
+  <!-- Command input left -->
+  <line x1="2" y1="25" x2="9" y2="25" stroke="#333" stroke-width="2"/>
+  <polygon points="7,22 9,25 7,28" fill="#333"/>
+</svg>

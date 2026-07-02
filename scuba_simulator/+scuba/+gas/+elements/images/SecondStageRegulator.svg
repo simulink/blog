@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <!-- Demand valve housing -->
+  <ellipse cx="25" cy="25" rx="14" ry="12" fill="none" stroke="#333" stroke-width="2"/>
+  <!-- Diaphragm -->
+  <line x1="11" y1="25" x2="39" y2="25" stroke="#333" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <!-- Lever/demand mechanism -->
+  <line x1="25" y1="25" x2="25" y2="14" stroke="#333" stroke-width="1.5"/>
+  <circle cx="25" cy="14" r="2" fill="none" stroke="#333" stroke-width="1.5"/>
+  <!-- IP arrow in -->
+  <line x1="2" y1="25" x2="11" y2="25" stroke="#333" stroke-width="2"/>
+  <polygon points="9,22 11,25 9,28" fill="#333"/>
+  <!-- Breathing arrow out -->
+  <line x1="39" y1="25" x2="48" y2="25" stroke="#333" stroke-width="2"/>
+  <polygon points="46,22 48,25 46,28" fill="#333"/>
+</svg>

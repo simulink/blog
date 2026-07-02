@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <!-- Check valve - one-way symbol -->
+  <polygon points="15,15 35,25 15,35" fill="none" stroke="#333" stroke-width="2"/>
+  <line x1="35" y1="15" x2="35" y2="35" stroke="#333" stroke-width="2"/>
+  <!-- Flow direction -->
+  <line x1="2" y1="25" x2="15" y2="25" stroke="#333" stroke-width="2"/>
+  <line x1="35" y1="25" x2="48" y2="25" stroke="#333" stroke-width="2"/>
+  <polygon points="44,22 48,25 44,28" fill="#333"/>
+</svg>

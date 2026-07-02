@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <!-- Valve body (pointing outward/venting) -->
+  <polygon points="35,15 15,25 35,35" fill="none" stroke="#333" stroke-width="2"/>
+  <line x1="15" y1="15" x2="15" y2="35" stroke="#333" stroke-width="2"/>
+  <!-- Flow lines (venting out) -->
+  <line x1="2" y1="25" x2="15" y2="25" stroke="#333" stroke-width="2"/>
+  <line x1="35" y1="25" x2="48" y2="25" stroke="#333" stroke-width="2"/>
+  <polygon points="44,22 48,25 44,28" fill="#333"/>
+  <!-- Command arrow from top -->
+  <line x1="25" y1="4" x2="25" y2="15" stroke="#333" stroke-width="1.5"/>
+  <polygon points="22,13 25,15 28,13" fill="#333"/>
+</svg>

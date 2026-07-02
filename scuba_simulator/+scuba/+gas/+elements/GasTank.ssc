@@ -1,0 +1,49 @@
+component GasTank
+% Gas Tank
+% High-pressure gas reservoir (rigid tank) with weight force output.
+% Pressure follows ideal gas law: P = n*R*T/V
+% Applies gas weight force through translational port (decreases as tank empties).
+
+    annotations
+        Icon = 'images/GasTank.svg';
+        [A] : Side = top;
+        [R] : Side = left;
+    end
+
+    nodes
+        A = scuba.gas.underwaterGas;
+        R = foundation.translational.translational;
+    end
+
+    parameters
+        V_tank = {0.012, 'm^3'};     % Internal volume
+        n_init = {98.47, 'mol'};     % Initial moles of gas (200 bar)
+        M_gas  = {0.029, 'kg/mol'};  % Molar mass of gas (air ~29 g/mol)
+    end
+
+    variables
+        n_dot_out = {0, 'mol/s'};    % Flow out of tank into network
+        f         = {0, 'N'};        % Weight force on translational port
+    end
+
+    variables(Access = private)
+        n_tank = {value = n_init, priority = priority.high};  % Moles in tank (state)
+    end
+
+    branches
+        n_dot_out : * -> A.n_dot;
+        f         : * -> R.f;
+    end
+
+    intermediates
+        R_gas = A.R_gas;
+        T     = A.T;
+    end
+
+    equations
+        A.p == n_tank * R_gas * T / V_tank;
+        der(n_tank) == -n_dot_out;
+        f == n_tank * M_gas * R.gravity;
+    end
+
+end

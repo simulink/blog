@@ -1,0 +1,70 @@
+component BCDBladder
+% BCD Bladder
+% Flexible variable-volume accumulator with buoyancy force output.
+% Internal pressure equals ambient (flexible walls).
+% Volume = n*R*T/P_amb, clamped to V_max.
+% Applies buoyancy force through position-based translational port.
+
+    annotations
+        Icon = 'images/bcd3.svg';
+        [A] : Side = top;
+        [R] : Side = left;
+    end
+
+    nodes
+        A = scuba.gas.underwaterGas;
+        R = foundation.translational.translational;
+    end
+
+    parameters
+        V_max      = {0.015, 'm^3'};    % Maximum bladder volume (15 L)
+        n_init     = {0, 'mol'};         % Initial moles in BCD
+        K_wall     = {1e7, 'Pa/m^3'};   % Wall stiffness when full
+        rho_water  = {1025, 'kg/m^3'};  % Water density
+        P_atm      = {101325, 'Pa'};    % Atmospheric pressure
+    end
+
+    variables
+        n_dot_in = {0, 'mol/s'};   % Flow into bladder
+        f        = {0, 'N'};       % Buoyancy force on translational port
+        V_bcd    = {0, 'm^3'};     % BCD volume 
+    end
+
+    variables(Access = private)
+        n_bcd = {value = n_init, priority = priority.high};
+    end
+
+    branches
+        n_dot_in : A.n_dot -> *;
+        f        : * -> R.f;
+    end
+
+    intermediates
+        R_gas   = A.R_gas;
+        T       = A.T;
+        depth   = R.x;
+        P_amb   = P_atm + rho_water * R.gravity * depth;
+        n_clamped = if n_bcd > {0, 'mol'}, n_bcd else {0, 'mol'} end;
+        V_free  = n_clamped * R_gas * T / P_amb;
+        V_actual = if V_free < V_max, V_free else V_max end;
+        P_excess = if V_free > V_max
+            K_wall * (V_free - V_max)
+        else
+            {0, 'Pa'}
+        end;
+        n_dot_clamped = if n_bcd <= {0, 'mol'} && n_dot_in < {0, 'mol/s'}
+            {0, 'mol/s'}
+        else
+            n_dot_in
+        end;
+        F_buoy  = rho_water * R.gravity * V_actual;
+    end
+
+    equations
+        A.p     == P_amb + P_excess;
+        der(n_bcd) == n_dot_clamped;
+        V_bcd == V_actual;
+        f == -F_buoy;
+    end
+
+end

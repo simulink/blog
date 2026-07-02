@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <!-- Tank body: cylinder with domed top and flat bottom with boot -->
+  <path d="M18,42 L18,16 C18,10 32,10 32,16 L32,42 Z" fill="none" stroke="#333" stroke-width="2.5"/>
+  <!-- Rounded dome top -->
+  <ellipse cx="25" cy="16" rx="7" ry="4" fill="none" stroke="#333" stroke-width="2.5"/>
+  <!-- Tank boot (base ring) -->
+  <path d="M16,42 L34,42" stroke="#333" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M16,42 L16,45 L34,45 L34,42" fill="none" stroke="#333" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- Valve neck -->
+  <rect x="23" y="8" width="4" height="5" fill="none" stroke="#333" stroke-width="2.5"/>
+  <!-- Handwheel (K-valve) -->
+  <line x1="21" y1="6" x2="29" y2="6" stroke="#333" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="25" cy="6" r="1.2" fill="#333"/>
+  <!-- Pressure indication lines on body -->
+  <line x1="21" y1="22" x2="29" y2="22" stroke="#333" stroke-width="1.5" stroke-dasharray="2,2"/>
+  <line x1="21" y1="28" x2="29" y2="28" stroke="#333" stroke-width="1.5" stroke-dasharray="2,2"/>
+</svg>
