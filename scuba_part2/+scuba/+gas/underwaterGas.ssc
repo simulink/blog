@@ -1,0 +1,19 @@
+domain underwaterGas
+% Custom gas domain for scuba simulation.
+% Across variable: pressure (Pa)
+% Through variable: molar flow rate (mol/s)
+
+    parameters
+        R_gas = {8.314, 'J/(mol*K)'};  % Universal gas constant
+        T     = {293.15, 'K'};         % Gas temperature (isothermal)
+    end
+
+    variables(Balancing = true)
+        n_dot = {0, 'mol/s'};          % Molar flow rate (through)
+    end
+
+    variables
+        p     = {101325, 'Pa'};        % Pressure (across)
+    end
+
+end

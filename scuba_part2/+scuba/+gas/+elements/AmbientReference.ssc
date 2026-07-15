@@ -1,0 +1,42 @@
+component AmbientReference
+% Ambient Reference
+% Ambient pressure reference (infinite source/sink).
+% Computes ambient pressure from depth via translational port position.
+
+    annotations
+        Icon = 'images/AmbientReference.svg';
+        [A] : Side = top
+        [R] : Side = right;
+    end
+
+    nodes
+        A = scuba.gas.underwaterGas;  % :left
+        R = foundation.translational.translational;  % :right
+    end
+
+    parameters
+        rho_water = {1025, 'kg/m^3'};  % Water density
+        P_atm     = {101325, 'Pa'};    % Atmospheric pressure
+    end
+
+    variables
+        n_dot_in = {0, 'mol/s'};  % Flow into reference
+        f        = {0, 'N'};      % Force on translational port
+    end
+
+    branches
+        n_dot_in : A.n_dot -> *;
+        f        : * -> R.f;
+    end
+
+    intermediates
+        depth = R.x;
+        P_amb = P_atm + rho_water * R.gravity * depth;
+    end
+
+    equations
+        A.p == P_amb;
+        f == {0, 'N'};
+    end
+
+end

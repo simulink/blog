@@ -1,0 +1,9 @@
+{
+  "libraries": [
+    {
+      "name": "scuba_lib",
+      "path": "models/scuba_lib.slx",
+      "description": "Scuba buoyancy physical modeling blocks"
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "libraryName": "scuba_lib",
+  "slxPath": "L:\\bash\\scuba_COP\\models\\scuba_lib.slx",
+  "slxTimestamp": 740175.71986111114,
+  "extractedAt": "2026-07-12T21:16:24",
+  "description": "Scuba buoyancy physical modeling blocks",
+  "rtwTimestamp": 7.05779999E+8,
+  "blocks": [
+    {
+      "name": "Diver Body",
+      "blockType": "SimscapeBlock",
+      "referenceBlock": "scuba_lib/Diver Body",
+      "maskType": "Diver Body",
+      "maskDescription": "Combined mass, buoyancy, and hydrodynamic drag for a human body on a position-based translational port. Weight, Archimedes buoyancy, and quadratic drag are all applied as body forces through the port.",
+      "description": "",
+      "pathCategory": "",
+      "metadataQuality": "high",
+      "containerPath": "scuba_lib/Diver Body"
+    },
+    {
+      "name": "Gas Branch",
+      "blockType": "SimscapeBlock",
+      "referenceBlock": "scuba_lib/gas/Gas Branch",
+      "maskType": "Gas Branch",
+      "maskDescription": "Two-port gas branch base class. Provides ports A and B with pressure difference and molar flow.",
+      "description": "",
+      "pathCategory": "gas",
+      "metadataQuality": "high",
+      "containerPath": "scuba_lib/gas/Gas Branch"
+    },
+    {
+      "name": "Ambient Reference",
+      "blockType": "SimscapeBlock",
+      "referenceBlock": "scuba_lib/gas/elements/Ambient Reference",
+      "maskType": "Ambient Reference",
+      "maskDescription": "Ambient pressure reference (infinite source/sink). Computes ambient pressure from depth via translational port position.",
+      "description": "",
+      "pathCategory": "gas/elements",
+      "metadataQuality": "high",
+      "containerPath": "scuba_lib/gas/elements/Ambient Reference"
+    },
+    {
+      "name": "BCD Bladder",
+      "blockType": "SimscapeBlock",
+      "referenceBlock": "scuba_lib/gas/elements/BCD Bladder",
+      "maskType": "BCD Bladder",
+      "maskDescription": "Flexible variable-volume accumulator with buoyancy force output. Internal pressure equals ambient (flexible walls). Volume = n*R*T/P_amb, clamped to V_max. Applies buoyancy force through position-based translational port.",
+      "description": "",
+      "pathCategory": "gas/elements",
+      "metadataQuality": "high",
+      "containerPath": "scuba_lib/gas/elements/BCD Bladder"
+    },
+    {
+      "name": "BCD Inflate Valve",
+      "blockType": "SimscapeBlock",
+      "referenceBlock": "scuba_lib/gas/elements/BCD Inflate Valve",
+      "maskType": "BCD Inflate Valve",
+      "maskDescription": "Commanded valve for BCD inflation. Opens when cmd > 0.5, allowing IP gas to flow into bladder.",
+      "description": "",
+      "pathCategory": "gas/elements",
+      "metadataQuality": "high",
+      "containerPath": "scuba_lib/gas/elements/BCD Inflate Valve"
+    },
+    {
+      "name": "Exhale Valve",
+      "blockType": "SimscapeBlock",
+      "referenceBlock": "scuba_lib/gas/elements/Exhale Valve",
+      "maskType": "Exhale Valve",
+      "maskDescription": "One-way check valve for exhaled gas. Opens when upstream pressure exceeds downstream by P_crack.",
+      "description": "",
+      "pathCategory": "gas/elements",
+      "metadataQuality": "high",
+      "containerPath": "scuba_lib/gas/elements/Exhale Valve"
+    },
+    {
+      "name": "First Stage Regulator",
+      "blockType": "SimscapeBlock",
+      "referenceBlock": "scuba_lib/gas/elements/First Stage Regulator",
+      "maskType": "First Stage\nRegulator",
+      "maskDescription": "Reduces HP tank pressure to intermediate pressure. Maintains outlet (B) at P_amb + IP_offset, limited by supply pressure.",
+      "description": "",
+      "pathCategory": "gas/elements",
+      "metadataQuality": "high",
+      "containerPath": "scuba_lib/gas/elements/First Stage Regulator"
+    },
+    {
+      "name": "Gas Domain Properties",
+      "blockType": "SimscapeBlock",
+      "referenceBlock": "scuba_lib/gas/elements/Gas Domain Properties",
+      "maskType": "Gas Domain\nProperties",
+      "maskDescription": "Sets domain-wide parameters (R_gas, T) for the connected gas network.",
+      "description": "",
+      "pathCategory": "gas/elements",
+      "metadataQuality": "high",
+      "containerPath": "scuba_lib/gas/elements/Gas Domain Properties"
+    },
+    {
+      "name": "Gas Tank",
+      "blockType": "SimscapeBlock",
+      "referenceBlock": "scuba_lib/gas/elements/Gas Tank",
+      "maskType": "Gas Tank",
+      "maskDescription": "High-pressure gas reservoir (rigid tank) with weight force output. Pressure follows ideal gas law: P = n*R*T/V Applies gas weight force through translational port (decreases as tank empties).",
+      "description": "",
+      "pathCategory": "gas/elements",
+      "metadataQuality": "high",
+      "containerPath": "scuba_lib/gas/elements/Gas Tank"
+    },
+    {
+      "name": "Gas Volume",
+      "blockType": "SimscapeBlock",
+      "referenceBlock": "scuba_lib/gas/elements/Gas Volume",
+      "maskType": "Gas Volume",
+      "maskDescription": "Small rigid gas volume providing pressure state for intermediate nodes. P = n*R*T/V (ideal gas in rigid container)",
+      "description": "",
+      "pathCategory": "gas/elements",
+      "metadataQuality": "high",
+      "containerPath": "scuba_lib/gas/elements/Gas Volume"
+    },
+    {
+      "name": "Ideal Molar Flow Source",
+      "blockType": "SimscapeBlock",
+      "referenceBlock": "scuba_lib/gas/elements/Ideal Molar Flow Source",
+      "maskType": "Ideal Molar Flow\nSource",
+      "maskDescription": "Injects a specified molar flow rate into port A (from ambient). Single-port: flow enters from environment at ambient conditions.",
+      "description": "",
+      "pathCategory": "gas/elements",
+      "metadataQuality": "high",
+      "containerPath": "scuba_lib/gas/elements/Ideal Molar Flow Source"
+    },
+    {
+      "name": "Ideal Pressure Source",
+      "blockType": "SimscapeBlock",
+      "referenceBlock": "scuba_lib/gas/elements/Ideal Pressure Source",
+      "maskType": "Ideal Pressure\nSource",
+      "maskDescription": "Sets port pressure to commanded value. Supplies/absorbs any molar flow.",
+      "description": "",
+      "pathCategory": "gas/elements",
+      "metadataQuality": "high",
+      "containerPath": "scuba_lib/gas/elements/Ideal Pressure Source"
+    },
+    {
+      "name": "Lungs",
+      "blockType": "SimscapeBlock",
+      "referenceBlock": "scuba_lib/gas/elements/Lungs",
+      "maskType": "Lungs",
+      "maskDescription": "Variable-volume lung chamber. Directly constrains lung volume to the commanded input. Calculates internal pressure using the ideal gas law.",
+      "description": "",
+      "pathCategory": "gas/elements",
+      "metadataQuality": "high",
+      "containerPath": "scuba_lib/gas/elements/Lungs"
+    },
+    {
+      "name": "Overpressure Relief Valve (OPRV)",
+      "blockType": "SimscapeBlock",
+      "referenceBlock": "scuba_lib/gas/elements/Overpressure Relief Valve (OPRV)",
+      "maskType": "Overpressure Relief\nValve (OPRV)",
+      "maskDescription": "Passive dump valve that vents gas when BCD internal pressure exceeds ambient by the cracking threshold (typically 2.5-4.0 psi gauge).",
+      "description": "",
+      "pathCategory": "gas/elements",
+      "metadataQuality": "high",
+      "containerPath": "scuba_lib/gas/elements/Overpressure Relief Valve (OPRV)"
+    },
+    {
+      "name": "Purge Valve",
+      "blockType": "SimscapeBlock",
+      "referenceBlock": "scuba_lib/gas/elements/Purge Valve",
+      "maskType": "Purge Valve",
+      "maskDescription": "Commanded dump valve for BCD purge. Opens when cmd > 0.5, vents gas from bladder to ambient. P_dump bias models hydrostatic head from raising dump valve above shoulder. Flow is clamped non-negative (one-way: BCD to water only).",
+      "description": "",
+      "pathCategory": "gas/elements",
+      "metadataQuality": "high",
+      "containerPath": "scuba_lib/gas/elements/Purge Valve"
+    },
+    {
+      "name": "Second Stage Regulator",
+      "blockType": "SimscapeBlock",
+      "referenceBlock": "scuba_lib/gas/elements/Second Stage Regulator",
+      "maskType": "Second Stage\nRegulator",
+      "maskDescription": "Demand valve: opens when downstream pressure drops below P_amb - P_crack. When open, delivers flow to bring downstream back toward P_amb. Flow is proportional to (P_amb - B.p) to provide self-limiting delivery.",
+      "description": "",
+      "pathCategory": "gas/elements",
+      "metadataQuality": "high",
+      "containerPath": "scuba_lib/gas/elements/Second Stage Regulator"
+    }
+  ]
+}

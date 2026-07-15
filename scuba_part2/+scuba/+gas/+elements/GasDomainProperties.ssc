@@ -1,0 +1,30 @@
+component(Propagation = source) GasDomainProperties
+% Gas Domain Properties
+% Sets domain-wide parameters (R_gas, T) for the connected gas network.
+
+    annotations
+        Icon = 'images/GasDomainProperties.svg';
+    end
+
+    nodes
+        A = scuba.gas.underwaterGas(R_gas = R_gas, T = T);  % :left
+    end
+
+    parameters
+        R_gas = {8.314, 'J/(mol*K)'};  % Universal gas constant
+        T     = {293.15, 'K'};         % Gas temperature
+    end
+
+    variables
+        n_dot_thru = {0, 'mol/s'};
+    end
+
+    branches
+        n_dot_thru : A.n_dot -> *;
+    end
+
+    equations
+        n_dot_thru == {0, 'mol/s'};
+    end
+
+end

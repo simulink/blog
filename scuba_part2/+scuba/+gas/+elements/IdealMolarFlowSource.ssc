@@ -1,0 +1,26 @@
+component IdealMolarFlowSource
+% Ideal Molar Flow Source
+% Injects a specified molar flow rate into port A (from ambient).
+% Single-port: flow enters from environment at ambient conditions.
+
+    nodes
+        A = scuba.gas.underwaterGas;  % outlet:right
+    end
+
+    inputs
+        flow_cmd = {0, 'mol/s'};  % Commanded molar flow rate
+    end
+
+    variables
+        n_dot_in = {0, 'mol/s'};
+    end
+
+    branches
+        n_dot_in : A.n_dot -> *;
+    end
+
+    equations
+        n_dot_in == -flow_cmd;
+    end
+
+end

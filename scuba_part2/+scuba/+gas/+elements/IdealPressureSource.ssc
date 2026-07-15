@@ -1,0 +1,29 @@
+component IdealPressureSource
+% Ideal Pressure Source
+% Sets port pressure to commanded value. Supplies/absorbs any molar flow.
+
+    annotations
+        Icon = 'images/IdealPressureSource.svg';
+    end
+
+    nodes
+        A = scuba.gas.underwaterGas;  % :right
+    end
+
+    inputs
+        P_cmd = {101325, 'Pa'};  % Commanded pressure
+    end
+
+    variables
+        n_dot_in = {0, 'mol/s'};
+    end
+
+    branches
+        n_dot_in : A.n_dot -> *;
+    end
+
+    equations
+        A.p == P_cmd;
+    end
+
+end

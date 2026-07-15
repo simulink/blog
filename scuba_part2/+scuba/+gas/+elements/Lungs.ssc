@@ -1,0 +1,61 @@
+component Lungs
+% Lungs
+% Variable-volume lung chamber.
+% Directly constrains lung volume to the commanded input.
+% Calculates internal pressure using the ideal gas law.
+
+    annotations
+        Icon = 'images/Lungs.svg';
+        [A] : Side = top;
+        [R] : Side = Left;
+    end
+
+    nodes
+        A = scuba.gas.underwaterGas;                    % gas:left
+        R = foundation.translational.translational;     % position:right
+    end
+
+    inputs
+        V_lungs_in = {3.0e-3, 'm^3'};    % Commanded lung volume
+    end
+
+    parameters
+        n_init    = {0.104, 'mol'};     % Initial moles (matching initial volume & depth)
+        rho_water = {1025, 'kg/m^3'};   % Water density
+        P_atm     = {101325, 'Pa'};     % Atmospheric pressure
+    end
+
+    variables
+        n_dot  = {0, 'mol/s'};          % Net molar flow into lungs
+        f      = {0, 'N'};              % Buoyancy force on translational port
+        P_lung = {101325, 'Pa'};        % Internal lung pressure
+    end
+
+    variables(Access = private)
+        n_lungs = {value = n_init, priority = priority.high};  % Moles in lungs (state)
+        V_lungs = {1.5e-3, 'm^3'};
+    end
+
+    branches
+        n_dot : A.n_dot -> *;
+        f     : * -> R.f;
+    end
+
+    intermediates
+        R_gas  = A.R_gas;
+        T      = A.T;
+        depth  = R.x;
+        P_amb  = P_atm + rho_water * R.gravity * depth;
+        F_buoy = rho_water * R.gravity * V_lungs;
+    end
+
+    equations
+        V_lungs == V_lungs_in;
+        A.p == P_lung;
+        der(n_lungs) == n_dot;
+        % Ideal gas law constraint
+        P_lung * V_lungs == n_lungs * R_gas * T;
+        f == -F_buoy;
+    end
+
+end

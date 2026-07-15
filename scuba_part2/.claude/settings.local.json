@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__matlab__evaluate_matlab_code",
+      "mcp__matlab__model_edit",
+      "mcp__matlab__model_read",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "mcp__matlab__model_overview",
+      "WebFetch(domain:www.mathworks.com)",
+      "mcp__matlab__run_matlab_test_file",
+      "Bash(git commit *)",
+      "mcp__matlab__model_query_params",
+      "Bash(xargs grep -l \"breath\\\\|Breathing\")",
+      "Bash(git checkout *)",
+      "mcp__matlab__run_matlab_file",
+      "WebFetch(domain:scholar.google.com)",
+      "WebFetch(domain:en.wikipedia.org)"
+    ]
+  }
+}

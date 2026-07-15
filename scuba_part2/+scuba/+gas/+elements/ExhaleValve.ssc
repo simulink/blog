@@ -1,0 +1,40 @@
+component ExhaleValve
+% Exhale Valve
+% One-way check valve for exhaled gas.
+% Opens when upstream pressure exceeds downstream by P_crack.
+
+    annotations
+        Icon = 'images/ExhaleValve.svg';
+    end
+
+    nodes
+        A = scuba.gas.underwaterGas;  % lung side:left
+        B = scuba.gas.underwaterGas;  % ambient side:right
+    end
+
+    parameters
+        P_crack = {50, 'Pa'};            % Cracking pressure
+        R_open  = {9000, 'Pa*s/mol'};    % Flow resistance when open
+    end
+
+    variables
+        n_dot = {0, 'mol/s'};  % Flow A to B
+    end
+
+    branches
+        n_dot : A.n_dot -> B.n_dot;
+    end
+
+    intermediates
+        p_diff = A.p - B.p;
+    end
+
+    equations
+        n_dot == if p_diff > P_crack
+            (p_diff - P_crack) / R_open
+        else
+            {0, 'mol/s'}
+        end;
+    end
+
+end

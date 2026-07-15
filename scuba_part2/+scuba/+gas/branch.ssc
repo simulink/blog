@@ -1,0 +1,24 @@
+component branch
+% Gas Branch
+% Two-port gas branch base class.
+% Provides ports A and B with pressure difference and molar flow.
+
+    nodes
+        A = scuba.gas.underwaterGas;  % A:left
+        B = scuba.gas.underwaterGas;  % B:right
+    end
+
+    variables
+        p_diff = {0, 'Pa'};       % Pressure difference A-B
+        n_dot  = {0, 'mol/s'};    % Molar flow from A to B
+    end
+
+    branches
+        n_dot : A.n_dot -> B.n_dot;
+    end
+
+    equations
+        p_diff == A.p - B.p;
+    end
+
+end
