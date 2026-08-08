@@ -7,7 +7,7 @@
 %[text] In [my previous post](https://blogs.mathworks.com/simulink/2026/04/26/model-based-systems-engineering-and-agentic-ai), I used an agentic AI workflow to create an initial system design for an intergalactic soup factory. That first pass produced a single design based on the RFLP (Requirements-Functional-Logical-Physical) methodology. Getting ***one*** architecture out of an agent is nice, but real systems engineering is about choosing between ***alternatives***. So, today I am revisiting the soup factory problem and using a cornerstone technique of [decision management](https://sebokwiki.org/wiki/Decision_Management): running a trade study. 
 %[text] Inspired by the rapid and significant updates to coding agents since my post back in April, I also tried out a different working style that directly contradicted what I had advocated for back then: I gave the agent a little guidance and let it run without much intervention. I am glad I did this, because it helps validate that my previous approach is still what I would recommend. I have some comments on this towards the end of this article. 
 %[text] This is the first of two posts. This one stops at the static architecture analysis. The second post will add dynamics to the same architectures with behavioral models, which changes some answers below.
-%[text] You can [access the full project I built here](https://github.com/mathworks/system-composer-rflp-reference-example).
+%[text] You can [access the full project I built here](https://github.com/mathworks/system-composer-rflp-reference-example) in a standalone repo. 
 %[text] *Everything in this post is the* ***baseline study***\*, captured at the point in the project where the three architectures existed but no behavior had been modeled yet. The project has moved on since (I’ll share that in the next part of the story). I have deliberately left the baseline numbers as they stood so you can watch how the numbers move across the study.\* 
 %[text]  
 %[text] Here’s the obligatory AI-generated image: 
@@ -191,8 +191,8 @@
 %[text] **Have the agent work in chunks YOU can manage.** The agent, and especially with a cohort of subagents, can churn out huge volumes of material; it doesn’t matter to them. Make it plan and execute in batches that you and your team can handle reviewing. 
 %[text] **Stay in the loop at every stage.** It’s so tempting to give a little direction and then walk away, but this is not the way to do engineering. 
 %[text] ## **Now it's your turn**
-%[text] The whole project is on GitHub as a runnable reference example: models, requirements, analysis, tests, and the documentation set. You can open the project and [open this guided tour.](https://github.com/mathworks/system-composer-rflp-reference-example/blob/main/GuidedTour.m).
-%[text] As I flagged at the top, that gives you the current numbers rather than the baseline ones in this post. The method is what carries over, and the method is what I would want you to take away anyway. 
+%[text] The whole project is on GitHub as a runnable reference example: models, requirements, analysis, tests, and the documentation set. You can open the project and [open this guided tour](https://github.com/mathworks/system-composer-rflp-reference-example/blob/main/GuidedTour.m).
+%[text] As I flagged at the top, that gives you the current numbers rather than the baseline ones in this post. 
 %[text] I hope you come back for the next installment when we will add in some dynamics!
 
 %[appendix]{"version":"1.0"}
