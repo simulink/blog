@@ -1,1 +1,1 @@
-edit MBSE_Trade_Study_part1.mlx
+edit MBSE_Trade_Study_part1.m
