@@ -6,9 +6,9 @@
 %[text] 
 %[text] In [my previous post](https://blogs.mathworks.com/simulink/2026/04/26/model-based-systems-engineering-and-agentic-ai), I used an agentic AI workflow to create an initial system design for an intergalactic soup factory. That first pass produced a single design based on the RFLP (Requirements-Functional-Logical-Physical) methodology. Getting ***one*** architecture out of an agent is nice, but real systems engineering is about choosing between ***alternatives***. So, today I am revisiting the soup factory problem and using a cornerstone technique of [decision management](https://sebokwiki.org/wiki/Decision_Management): running a trade study. 
 %[text] Inspired by the rapid and significant updates to coding agents since my post back in April, I also tried out a different working style that directly contradicted what I had advocated for back then: I gave the agent a little guidance and let it run without much intervention. I am glad I did this, because it helps validate that my previous approach is still what I would recommend. I have some comments on this towards the end of this article. 
-%[text] This is the first of two posts. This one stops at the static architecture analysis. The second post will add dynamics to the same architectures with behavioral models, which changes some answers below.
+%[text] This is the first of two posts. This one stops at the static architecture analysis, relying on System Composer and MATLAB. The second post will add implementations in Simulink, Simscape, and Stateflow to those same System Composer architectures with behavioral models, which changes some answers below. 
 %[text] You can [access the full project I built here](https://github.com/mathworks/system-composer-rflp-reference-example) in a standalone repo. 
-%[text] *Everything in this post is the* ***baseline study***\*, captured at the point in the project where the three architectures existed but no behavior had been modeled yet. The project has moved on since (I’ll share that in the next part of the story). I have deliberately left the baseline numbers as they stood so you can watch how the numbers move across the study.\* 
+%[text] Everything in this post is the study captured at the point in the project where the three architectures existed but no behavior had been modeled yet. The project has moved on since (I’ll share that in the next part of the story). I have deliberately left the baseline numbers as they stood so you can watch how the numbers move across the study. 
 %[text]  
 %[text] Here’s the obligatory AI-generated image: 
 %[text]  ![](text:image:58c4)
@@ -25,14 +25,14 @@
 %[text] | --- | --- | --- |
 %[text] | **HyperCook** | Throughput  | Four parallel continuous cook lines  |
 %[text] | **LeanBroth** | Resource-budget margin | Two batch kettles, one prep station, and fewer overall components |
-%[text] | **EverSimmer** | Mission assurance | Three independent production cells, each a complete prep-cook-QC-pack chain |
+%[text] | **EverSimmer** | Mission assurance | Three independent production cells, each a complete prep-cook-quality control-pack chain |
 %[text:table]
 %[text]  I asked the agent to create a simple diagram of each variant so I can see what it is proposing. It did [that](https://github.com/mathworks/system-composer-rflp-reference-example/blob/main/analysis/reporting/makeVariantSchematics.m) very cutely using MATLAB figures. 
 %[text] **HyperCook** prioritizes throughput with four parallel continuous cook lines.
 %[text]  [![](text:image:325f)](https://github.com/sdagen/symmetrical-fiesta/blob/main/blog/images/variant_schematic_hypercook.png)
 %[text] **LeanBroth** prioritizes budget margin with two batch kettles and one prep station.
 %[text] [![](text:image:8a78)](https://github.com/sdagen/symmetrical-fiesta/blob/main/blog/images/variant_schematic_leanbroth.png)
-%[text] **EverSimmer** prioritizes robustness: three fully independent production cells, each a complete prep-cook-QC-pack chain. You can still produce soup even if one or two entire cells fail.
+%[text] **EverSimmer** prioritizes robustness: three fully independent production cells, each a complete prep-cook-quality control-pack chain. You can still produce soup even if one or two entire cells fail.
 %[text]  ![](text:image:51cf)
 %[text]  These all looked like reasonable concepts, which was good enough for my purposes to call them validated. So, I had the agent implement them in System Composer architecture models, including data dictionaries, requirements traceability links, and allocations between the functional, logical, and physical models. 
 %[text] One implementation decision I want to point out: these are three separate architecture models, not variant components in one model. The variants differ in topology, hierarchy depth, and component count, and each needs its own allocation set. I reused the interface dictionary and stereotype profile across the three architecture models. You can see all of those [here](https://github.com/mathworks/system-composer-rflp-reference-example/tree/main/architecture). 
@@ -58,7 +58,7 @@
 %[text]  ![](text:image:7ff9)
 %[text] Here’s the [stereotype](https://www.mathworks.com/help/systemcomposer/ug/define-architectural-properties-using-system-composer-profiles.html) applied to a component in one of the physical architectures:
 %[text] ![](text:image:6e41)
-%[text] The agent also assigned the values for these properties. I’m not an expert in sizing components for fictional production facilities, so I left those values as whatever the agent made them. 
+%[text] The agent also assigned the values for these properties. I’m not an expert in sizing components for fictional production facilities, so I left those values as whatever the agent made them. Since I let my agent go out to the internet, it was able to poke around the web and find some believable numbers. 
 %[text] ### **Analysis Functions**
 %[text] The mathematical approach for an analysis function depends on the property being analyzed. This documentation page explains a few analysis constructs: [Analysis Function Constructs](https://www.mathworks.com/help/systemcomposer/ug/analysis-function-constructs.html)
 %[text]  Here are a few examples from the soup factory:
