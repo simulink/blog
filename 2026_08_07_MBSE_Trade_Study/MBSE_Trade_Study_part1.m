@@ -1,16 +1,14 @@
 %[text] # Trade Studies with Agentic-AI-powered MBSE 
 %[text]  
 %[text] [![](text:image:8092)](https://matlab.mathworks.com/open/github/v1?repo=simulink/blog&project=2026_04_27_MBSE_GenAI/MBSE_and_GenAI.prj)
-%[text] *Today I am happy to welcome back* [Sarah Dagen](https://www.linkedin.com/in/sarah-dagen/) *from* [MathWorks Consulting Services](https://www.mathworks.com/services/consulting.html) *because she is my favorite person and everything she does is amazing.*
+%[text] *Today I am happy to welcome back* [Sarah Dagen](https://www.linkedin.com/in/sarah-dagen/) *from* [MathWorks Consulting Services](https://www.mathworks.com/services/consulting.html).
 %[text] *.*![](text:image:1cfa)
-%[text] 
 %[text] In [my previous post](https://blogs.mathworks.com/simulink/2026/04/26/model-based-systems-engineering-and-agentic-ai), I used an agentic AI workflow to create an initial system design for an intergalactic soup factory. That first pass produced a single design based on the RFLP (Requirements-Functional-Logical-Physical) methodology. Getting ***one*** architecture out of an agent is nice, but real systems engineering is about choosing between ***alternatives***. So, today I am revisiting the soup factory problem and using a cornerstone technique of [decision management](https://sebokwiki.org/wiki/Decision_Management): running a trade study. 
 %[text] Inspired by the rapid and significant updates to coding agents since my post back in April, I also tried out a different working style that directly contradicted what I had advocated for back then: I gave the agent a little guidance and let it run without much intervention. I am glad I did this, because it helps validate that my previous approach is still what I would recommend. I have some comments on this towards the end of this article. 
 %[text] This is the first of two posts. This one stops at the static architecture analysis, relying on System Composer and MATLAB. The second post will add implementations in Simulink, Simscape, and Stateflow to those same System Composer architectures with behavioral models, which changes some answers below. 
 %[text] You can [access the full project I built here](https://github.com/mathworks/system-composer-rflp-reference-example) in a standalone repo. 
 %[text] Everything in this post is the study captured at the point in the project where the three architectures existed but no behavior had been modeled yet. The project has moved on since (I’ll share that in the next part of the story). I have deliberately left the baseline numbers as they stood so you can watch how the numbers move across the study. 
-%[text]  
-%[text] Here’s the obligatory AI-generated image: 
+%[text]  Here’s the obligatory AI-generated image: 
 %[text]  ![](text:image:58c4)
 %[text] ## **The setup**
 %[text] The [Simulink Agentic Toolkit](https://github.com/matlab/simulink-agentic-toolkit) now includes skills for Model-Based Systems Engineering (MBSE), so unlike my earlier post, I didn’t have to develop my own to build architectures. I did everything in this post using only the skills shipping in the Agentic Toolkit ([Release 2026.08.05](https://github.com/matlab/simulink-agentic-toolkit/releases/tag/2026.08.05)). 
