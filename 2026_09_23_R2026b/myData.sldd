@@ -1,0 +1,87 @@
+{
+	"__MW_TEXT_COREPROPERTIES__": {
+		"release": "R2026b"
+	},
+	"__MW_TEXT_PARTS__": {
+		"__MW_TEXT_PART__/data/chunk0": {
+			"__MW_TEXT_content": {
+				"entries": [
+					{
+						"name": "a",
+						"metadata": {
+							"uuid": "0cda0657-c858-4626-acf6-accec2b0e963",
+							"namespace": "dacaf35e-55a5-454d-a7c1-93db038a210e",
+							"lastmod": "20260917T173243.628024",
+							"modifiedby": "grouleau",
+							"isderived": "0"
+						},
+						"value": 42
+					},
+					{
+						"name": "b",
+						"metadata": {
+							"uuid": "92cac6d2-630c-4fd8-b60f-4234690b484b",
+							"namespace": "dacaf35e-55a5-454d-a7c1-93db038a210e",
+							"lastmod": "20260917T173254.456205",
+							"modifiedby": "grouleau",
+							"isderived": "0"
+						},
+						"value": {
+							"_type": "double",
+							"_value": "Matrix(3,3)\n[[0.81472368639317894, 0.91337585613901939, 0.2784982188670484]; [0.90579193707561922, 0.63235924622540951, \n0.54688151920498385]; [0.12698681629350606, 0.097540404999409525, 0.9575068354342976]]"
+						}
+					},
+					{
+						"name": "myParam",
+						"metadata": {
+							"uuid": "c236bdd4-f3b7-4184-a7e8-16fe8741bf2e",
+							"namespace": "dacaf35e-55a5-454d-a7c1-93db038a210e",
+							"lastmod": "20260917T173313.394562",
+							"modifiedby": "grouleau",
+							"isderived": "0"
+						},
+						"value": {
+							"_array_class": "Simulink.Parameter",
+							"_dimensions": [
+								1,
+								1
+							],
+							"_elements": [
+								{
+									"_id": "1",
+									"_properties": {
+										"CoderInfo": {
+											"_id": "2",
+											"_object_class": "Simulink.CoderInfo",
+											"_properties": {
+												"CSCPackageName": "Simulink",
+												"CustomAttributes": {
+													"_id": "3",
+													"_object_class": "SimulinkCSC.AttribClass_Simulink_Default",
+													"_properties": {}
+												},
+												"CustomStorageClass": "Default",
+												"ParameterOrSignal": "Parameter",
+												"StorageClass": "Auto"
+											}
+										},
+										"Complexity": "real",
+										"DataType": "uint8",
+										"Dimensions": [
+											1,
+											1
+										],
+										"Value": 23
+									}
+								}
+							],
+							"_mw_element_type": "MATLABArray"
+						}
+					}
+				],
+				"Dictionary References": [],
+				"AllowAccessBWS": false
+			}
+		}
+	}
+}
