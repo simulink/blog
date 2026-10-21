@@ -1,0 +1,15 @@
+name = "SimscapeBestPractices"
+
+[folders]
+path = [
+    "models",
+]
+
+[project]
+startup-files = [
+    "openBlogPost.m",
+]
+
+[simulink]
+cache-folder = "cache"
+codegen-folder = "cache"
