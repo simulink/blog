@@ -1,13 +1,13 @@
 %[text] # Behavioral Models with Agentic-AI-powered MBSE 
 %[text]  
 %[text] [![](text:image:8092)](https://matlab.mathworks.com/open/github/v1?repo=simulink/blog&project=2026_04_27_MBSE_GenAI/MBSE_and_GenAI.prj)
-%[text] *Today I am happy to welcome back* [*Sarah Dagen*](https://www.linkedin.com/in/sarah-dagen/) *from* [*MathWorks Consulting Services*](https://www.mathworks.com/services/consulting.html) *for another visit to the Galactic Soup Factory!*
+%[text] *Today I am happy to welcome back* [Sarah Dagen](https://www.linkedin.com/in/sarah-dagen/) *from* [MathWorks Consulting Services](https://www.mathworks.com/services/consulting.html) *for another visit to the Galactic Soup Factory!*
 %[text] *.*![](text:image:1cfa)
 %[text] When we left off using agentic AI and MBSE to design an intergalactic soup factory, we were evaluating 3 physical design variants. I am continuing the trade study in this article, but this time it is based on dynamic simulations rather than static analysis. 
 %[text] ![](text:image:2929)
 %[text] ## A reminder of what happened so far 
-%[text] I started by using a coding agent along with the [Simulink Agentic Toolkit](https://github.com/matlab/simulink-agentic-toolkit) and [System Composer](https://www.mathworks.com/products/system-composer.html) to [<u>import and analyze system requirements and develop functional, logical, and physical architectures</u>](https://blogs.mathworks.com/simulink/2026/04/26/model-based-systems-engineering-and-agentic-ai/). 
-%[text] Then, I had the agent propose three different physical architecture variants that could meet the requirements, and developed [<u>architectural analysis and a trade study</u>](https://blogs.mathworks.com/simulink/2026/08/12/trade-studies-with-agentic-ai-powered-mbse/) to evaluate the variants against each other. 
+%[text] I started by using a coding agent along with the [Simulink Agentic Toolkit](https://github.com/matlab/simulink-agentic-toolkit) and [System Composer](https://www.mathworks.com/products/system-composer.html) to [import and analyze system requirements and develop functional, logical, and physical architectures](https://blogs.mathworks.com/simulink/2026/04/26/model-based-systems-engineering-and-agentic-ai/). 
+%[text] Then, I had the agent propose three different physical architecture variants that could meet the requirements, and developed [architectural analysis and a trade study](https://blogs.mathworks.com/simulink/2026/08/12/trade-studies-with-agentic-ai-powered-mbse/) to evaluate the variants against each other. 
 %[text] These are our three architecture candidates: 
 %[text] **HyperCook** prioritizes throughput with four parallel continuous cook lines.
 %[text] [![](text:image:0a50)](https://github.com/sdagen/symmetrical-fiesta/blob/main/blog/images/variant_schematic_hypercook.png)
@@ -15,11 +15,10 @@
 %[text] [![](text:image:4014)](https://github.com/sdagen/symmetrical-fiesta/blob/main/blog/images/variant_schematic_leanbroth.png)
 %[text] **EverSimmer** prioritizes robustness: three fully independent production cells, each a complete prep-cook-quality control-pack chain. You can still produce soup even if one or two entire cells fail.
 %[text]  ![](text:image:4f07)
-%[text]  
-%[text] Using architectural analysis and trade study techniques, EverSimmer emerged a strong choice. It had the highest score in the majority of weighting scenarios. 
+%[text]  Using architectural analysis and trade study techniques, EverSimmer emerged a strong choice. It had the highest score in the majority of weighting scenarios. 
 %[text] ## Let’s add behaviors!
 %[text] All of the analysis up to this point was based on static calculations and spec-sheet type data. To get a deeper understanding of how these different factories would actually work, I used the agent to help build some behavioral models. These are models that have executable semantics, like our static architectures, but also time-dependent equations. 
-%[text] When I originally designed these variants, I aimed to reuse as many architectural subcomponents as possible. There are differences in peripheral details, but fundamentally they are all doing the same thing with different combinations of the same components – things like preparing ingredients, cooking, quality control and packaging. So when it came to modeling the behaviors, I asked the agent to create parameterized reference models that could be reused in all the architectures. 
+%[text] When I originally designed these variants, I aimed to reuse as many architectural sub-components as possible. There are differences in peripheral details, but fundamentally they are all doing the same thing with different combinations of the same components – things like preparing ingredients, cooking, quality control and packaging. So when it came to modeling the behaviors, I asked the agent to create parameterized reference models that could be reused in all the architectures. 
 %[text] To start to get a feeling of how those factories operate, I worked with the agent and made the following component models: 
 %[text:table]
 %[text] | **Component model** | **What it models** |
@@ -47,10 +46,10 @@
 %[text] Working with the agent, I created several suites of tests to simulate different operational scenarios. The scenarios are based on the system requirements, and include traceability to the requirements.
 %[text]  ![](text:image:0dff)
 %[text] My test scenarios include:
-%[text] -	Startup time
-%[text] -	Nominal operation
-%[text] -	Recipe rotation
-%[text] -	Batch contamination 
+%[text] - time
+%[text] - operation
+%[text] - rotation
+%[text] - contamination \
 %[text] ![](text:image:6e22)
 %[text] ## Simulate!
 %[text] Right away I can see interesting results. In the nominal operation case, I can see that the output of each factory varies over time even after it reaches nominal production, and sometimes has very large dips. Here’s the factory output rate of each variant from a cold start:
@@ -76,12 +75,8 @@
 %[text:table]
 %[text] ## Summary
 %[text] Adding behaviors brought the trade study beyond spec-sheet comparisons, revealing differences in operational behaviors including startup time, energy use, and fault resilience. The agent helped me build reusable models and explore these scenarios cheaply. Now, the choice of soup factory rests not just on its architecture, but on how it behaves in operation.
-%[text] **Now it's your turn**
-%[text] The whole project is on GitHub as a runnable reference example: models, requirements, analysis, tests, and the documentation set. You can open the project and [<u>open this guided tour</u>](https://github.com/mathworks/system-composer-rflp-reference-example/blob/main/GuidedTour.m). 
-%[text] 
-%[text] 
-%[text]  
-%[text] 
+%[text] ## **Now it's your turn**
+%[text] The whole project is on GitHub as a runnable reference example: models, requirements, analysis, tests, and the documentation set. You can open the project and [open this guided tour](https://github.com/mathworks/system-composer-rflp-reference-example/blob/main/GuidedTour.m). 
 
 %[appendix]{"version":"1.0"}
 %---
