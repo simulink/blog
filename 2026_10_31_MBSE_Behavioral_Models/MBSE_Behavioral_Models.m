@@ -15,7 +15,7 @@
 %[text] [![](text:image:4014)](https://github.com/sdagen/symmetrical-fiesta/blob/main/blog/images/variant_schematic_leanbroth.png)
 %[text] **EverSimmer** prioritizes robustness: three fully independent production cells, each a complete prep-cook-quality control-pack chain. You can still produce soup even if one or two entire cells fail.
 %[text]  ![](text:image:4f07)
-%[text]  Using architectural analysis and trade study techniques, EverSimmer emerged a strong choice. It had the highest score in the majority of weighting scenarios. 
+%[text] Using architectural analysis and trade study techniques, EverSimmer emerged a strong choice. It had the highest score in the majority of weighting scenarios. 
 %[text] ## Let’s add behaviors!
 %[text] All of the analysis up to this point was based on static calculations and spec-sheet type data. To get a deeper understanding of how these different factories would actually work, I used the agent to help build some behavioral models. These are models that have executable semantics, like our static architectures, but also time-dependent equations. 
 %[text] When I originally designed these variants, I aimed to reuse as many architectural sub-components as possible. There are differences in peripheral details, but fundamentally they are all doing the same thing with different combinations of the same components – things like preparing ingredients, cooking, quality control and packaging. So when it came to modeling the behaviors, I asked the agent to create parameterized reference models that could be reused in all the architectures. 
@@ -36,10 +36,10 @@
 %[text] I didn’t give the agent much direction on *how* to model anything. It made some technical decisions that I might not have made myself, but it generally got the job done and was good enough to bring insights. I told the agent to use the whole spectrum of modeling tools at its disposal. For example, for the cooking vat, the agent decided on its own to use Stateflow to implement the control mode logic and Simscape for the physical systems. 
 %[text] ![](text:image:30c3)
 %[text] ![](text:image:6d63)
-%[text] These are good choices, for a real project I would probably have spent more time planning with the agent before letting it build to make sure those decisions were my own. 
+%[text] These are good choices, but for a real project I would have spent more time planning with the agent before letting it build to make sure those decisions were my own. 
 %[text] ## The architecture is the model
 %[text] One of the most powerful features of System Composer is its simulation capabilities, which is very different from many other MBSE tools.  You can add Simulink models and behaviors directly in System Composer architecture models! 
-%[text] Here’s a little video showing how you can navigate directly from a system-level architecture down into behavioral models – a state chart in Stateflow, in this case: 
+%[text] Here’s an animation showing how you can navigate directly from a system-level architecture down into behavioral models – a state chart in Stateflow, in this case: 
 %[text] ![](text:image:0626)
 %[text] ## Simulating the dynamics
 %[text] Once I had my architectures elaborated with behaviors, I needed to build simulation scenarios and test cases to observe the system dynamics. 
