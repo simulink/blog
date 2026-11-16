@@ -1,0 +1,13 @@
+name = "Debugging with AI"
+
+[dependencies]
+Ex2 = {path = "example"}
+
+[project]
+startup-files = [
+    "openBlogPost.m",
+]
+
+[simulink]
+cache-folder = "cache"
+codegen-folder = "cache"
