@@ -1,4 +1,4 @@
-%[text] # Debugging Simulation Results with a Coding Agent
+%[text] # Debugging Simulation Results with an AI Coding Agent
 %[text] [![](text:image:6447)](https://matlab.mathworks.com/open/github/v1?repo=simulink/blog&project=2026_11_16_Debugging_with_AI/matlab.toml)
 %[text] I have to admit, in my everyday job, I spend a lot more time debugging Simulink models giving unexpected results than creating new ones. Since I have access to AI coding agents, I got a lot of success speeding up debugging sessions and getting deeper insights than I could have dreamed of before,
 %[text] Today I decided to share one example of this kind of debugging.
